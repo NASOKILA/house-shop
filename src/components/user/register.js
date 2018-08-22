@@ -105,7 +105,7 @@ export default class Register extends Component {
                         localStorage.setItem('admin', 'false');
                     }
                 
-                    this.props.history.push('/home')
+                    return this.props.history.push('/house-shop')
                 })
                 .catch(res => observer.trigger(observer.events.notification, {error: true, message: "Invalid User Credentials!", type: 'error'}));        
     

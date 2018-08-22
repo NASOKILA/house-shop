@@ -17,14 +17,14 @@ export default class Home extends Component {
             .then(houses => {
 
                 let counter = 1;
-
+                
                 houses.forEach(houses => {
                     houses.key = counter.toString();
                     counter++;
                 });
 
                 this.setState({
-                    houses
+                    houses : houses.reverse()
                 });
 
             })
@@ -70,7 +70,7 @@ export default class Home extends Component {
                                     avaliable = "Sold";
                                 }
 
-                                return <a key={h.key} href={"/house/details/" + h._id} className="col-md-3">
+                                return <a key={h.key} href={"/house-shop/house/details/" + h._id} className="col-md-3">
                                     <div className={classSold + " product p-1 chushka-bg-color rounded-top rounded-bottom content"}>
 
                                         <h5 className="text-center mt-3 houseData">{h.key}</h5>
@@ -115,11 +115,13 @@ export default class Home extends Component {
                     <br />
                     <h3 className="text-white">[ This is a portfolio website for training purposes only. ]</h3>
                     <br />
+                    <p className="text-white">[ To log in as admin use  username:Admin and password:Admin!  ]</p>
+                    <br />
                     <hr className="bg-white" />
                     <br />
-                    <h3 className="text-white"><a className="nav-link-dark homeLink" href="user/register">Register</a> if you don't have an account.</h3>
+                    <h3 className="text-white"><a className="nav-link-dark homeLink" href="/house-shop/user/register">Register</a> if you don't have an account.</h3>
                     <br />
-                    <h3 className="text-white"><a className="nav-link-dark homeLink" href="user/login">Login</a> if you have an account.</h3>
+                    <h3 className="text-white"><a className="nav-link-dark homeLink" href="/house-shop/user/login">Login</a> if you have an account.</h3>
                 </div>
                 <br />
             </div>

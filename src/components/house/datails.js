@@ -74,12 +74,12 @@ export default class Details extends Component {
                                 <div className="product-action-holder mt-4 d-flex justify-content-around">
 
                                     {this.state.house.Sold === "false"
-                                        ? <a className="btn btn-lg btn-success housebuttons" href={"/house/confirm-order/" + this.state.house._id}>Order</a>
+                                        ? <a className="btn btn-lg btn-success housebuttons" href={"/house-shop/house/confirm-order/" + this.state.house._id}>Order</a>
                                         : ""}
 
 
                                     {localStorage.getItem("admin") === 'true'
-                                        ? <a className="btn btn-lg btn-danger housebuttons" href={"/house/delete/" + this.state.house._id}>Delete</a>
+                                        ? <a className="btn btn-lg btn-danger housebuttons" href={"/house-shop/house/delete/" + this.state.house._id}>Delete</a>
                                         : ""}
                                 </div>
                             </div>
@@ -135,15 +135,15 @@ export default class Details extends Component {
                             <div className="product-action-holder mt-4 d-flex justify-content-around">
 
                                 {this.state.house.Sold === "false"
-                                    ? <a className="btn btn-lg btn-success housebuttons" href={"/house/confirm-order/" + this.state.house._id}>Order</a>
+                                    ? <a className="btn btn-lg btn-success housebuttons" href={"/house-shop/house/confirm-order/" + this.state.house._id}>Order</a>
                                     : ""}
 
                                 {localStorage.getItem("admin") === 'true'
-                                    ? <a className="btn btn-lg btn-warning housebuttons" href={"/house/edit/" + this.state.house._id}>Edit</a>
+                                    ? <a className="btn btn-lg btn-warning housebuttons" href={"/house-shop/house/edit/" + this.state.house._id}>Edit</a>
                                     : ""}
 
                                 {localStorage.getItem("admin") === 'true'
-                                    ? <a className="btn btn-lg btn-danger housebuttons" href={"/house/delete/" + this.state.house._id}>Delete</a>
+                                    ? <a className="btn btn-lg btn-danger housebuttons" href={"/house-shop/house/delete/" + this.state.house._id}>Delete</a>
                                     : ""}
                             </div>
                         </div>

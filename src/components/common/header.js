@@ -10,7 +10,7 @@ export default class header extends Component {
                 <header>
 
                     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <a className="navbar-brand" href="/">HouseShop</a>
+                        <a className="navbar-brand" href="/house-shop/">HouseShop</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -19,34 +19,34 @@ export default class header extends Component {
                             <ul className="navbar-nav mr-auto">
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/">Home</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop">Home</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/about">About</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/about">About</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/user/profile/:id">Profile</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/user/profile/:id">Profile</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/order/my">My Orders</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/order/my">My Orders</a>
                                 </li>
 
                                 <li className="nav-item" >
-                                    <a className="nav-link nav-link-white" href="/order/all">All Orders</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/order/all">All Orders</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/house/create">Create House</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/house/create">Create House</a>
                                 </li>
 
                             </ul>
 
                             <ul className="navbar-nav left-side">
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/user/logout">Logout</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/user/logout">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -60,7 +60,7 @@ export default class header extends Component {
                 
                 
                 <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <a className="navbar-brand" href="/">HouseShop</a>
+                        <a className="navbar-brand" href="/house-shop/">HouseShop</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -69,26 +69,26 @@ export default class header extends Component {
                             <ul className="navbar-nav mr-auto">
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/">Home</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/">Home</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/about">About</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/about">About</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/user/profile/:id">Profile</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/user/profile/:id">Profile</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/order/my">My Orders</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/order/my">My Orders</a>
                                 </li>
 
                             </ul>
 
                             <ul className="navbar-nav left-side">
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/user/logout">Logout</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/user/logout">Logout</a>
                                 </li>
                             </ul>
                         </div>
@@ -102,7 +102,7 @@ export default class header extends Component {
 
             <header className="header">
                  <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                        <a className="navbar-brand" href="/">HouseShop</a>
+                        <a className="navbar-brand" href="/house-shop/">HouseShop</a>
                         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
                             <span className="navbar-toggler-icon"></span>
                         </button>
@@ -111,20 +111,20 @@ export default class header extends Component {
                             <ul className="navbar-nav mr-auto">
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/">Home</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop">Home</a>
                                 </li>
 
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/about">About</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/about">About</a>
                                 </li>
                             </ul>
 
                             <ul className="navbar-nav left-side">
                             <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/user/login">Login</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/user/login">Login</a>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link nav-link-white" href="/user/register">Register</a>
+                                    <a className="nav-link nav-link-white" href="/house-shop/user/register">Register</a>
                                 </li>
                             </ul>
                         </div>

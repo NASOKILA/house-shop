@@ -59,7 +59,7 @@ export default class Delete extends Component {
                     message: "House Deleted Successfully !"
                 })
 
-                this.props.history.push('/home');
+                return this.props.history.push('/house-shop');
 
             }).catch(err => {
                 console.log(err)

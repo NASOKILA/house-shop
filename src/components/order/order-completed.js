@@ -98,7 +98,7 @@ export default class OrderCompleted extends Component {
                         <br />
                         <h3>You cannot buy it !</h3>
                         <div className="product-action-holder mt-4 d-flex justify-content-around">
-                            <a className="btn btn btn-info housebuttons" href={"/"}>Back to home</a>
+                            <a className="btn btn btn-info housebuttons" href={"/house-shop"}>Back to home</a>
                         </div>
                     </div>
                 </div>
@@ -118,8 +118,8 @@ export default class OrderCompleted extends Component {
                         <br />
                         <h3 className="housebuttons">Enjoy your new house :)</h3>
                         <div className="product-action-holder mt-4 d-flex justify-content-around">
-                            <a className="btn btn btn-info housebuttons" href={"/"}>Back to home</a>
-                            <a className="btn btn btn-info housebuttons" href={"/order/details/" + this.state.order._id}>Order Details</a>
+                            <a className="btn btn btn-info housebuttons" href={"/house-shop"}>Back to home</a>
+                            <a className="btn btn btn-info housebuttons" href={"/house-shop/order/details/" + this.state.order._id}>Order Details</a>
                         </div>
                     </div>
                 </div>

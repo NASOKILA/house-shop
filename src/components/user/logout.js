@@ -16,6 +16,6 @@ export default class Logout extends Component {
         this.logout();
         sessionStorage.clear();
         localStorage.clear();
-        return <Redirect to='/' />
+        return <Redirect to='/house-shop' />
     }
 }

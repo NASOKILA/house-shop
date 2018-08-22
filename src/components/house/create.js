@@ -74,7 +74,7 @@ export default class Create extends Component {
                         message: "House Created Successfully !"
                     })
 
-                    this.props.history.push('/home')
+                    this.props.history.push('/house-shop')
                 }).catch(err => {
                     console.log(err)
                     this.setState({

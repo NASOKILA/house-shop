@@ -97,7 +97,7 @@ export default class Edit extends Component {
                     message: "House Updated Successfully !"
                 })
 
-                this.props.history.push('/home')
+                return this.props.history.push('/house-shop')
             }).catch(err => {
                 console.log(err)
                 this.setState({
