@@ -1,0 +1,107 @@
+
+
+.content {
+    left: -2500px;
+    position: relative;
+    animation-name: details;
+    animation-duration:1.5s;
+    animation-delay:1s;
+    animation-fill-mode: forwards; 
+  }
+  
+
+  .title {
+    right: -2500px;
+    position: relative;
+    animation-name: title;
+    animation-duration:1.5s;
+    animation-delay:1.5s;
+    animation-fill-mode: forwards; 
+  }
+
+  .imgAnimate {
+    
+    position: relative;
+    animation-name: imgAnim;
+    animation-duration:1.5s;
+    animation-delay:2s;
+    animation-fill-mode: forwards; 
+  }
+  
+  
+  .houseData {
+    transition: 0;    
+    opacity:0;
+    position: relative;
+    animation-name: dataAnim;  
+    animation-duration:1.5s;
+    animation-delay:3s;
+    animation-fill-mode: forwards; 
+  }
+  
+  
+  .detailsActions{
+    left: -2500px;
+    position: relative;
+    animation-name: details;
+    animation-duration:1.5s;
+    animation-delay:1.5s;
+    animation-fill-mode: forwards; 
+  }
+  
+  
+  .detailsData {
+    right: -2500px;
+    position: relative;
+    animation-name: title;
+    animation-duration:1.5s;
+    animation-delay:0.5s;
+    animation-fill-mode: forwards; 
+  }
+
+
+  .detailsDataFromLeft{
+    left: -2500px;
+    position: relative;
+    animation-name: details;
+    animation-duration:1.5s;
+    animation-delay:0.5s;
+    animation-fill-mode: forwards; 
+  }
+
+  
+  .houseData {
+    transition: 0;    
+    opacity:0;
+    position: relative;
+    animation-name: dataAnim;  
+    animation-duration:1.5s;
+    animation-delay:2s;
+    animation-fill-mode: forwards; 
+  }
+  
+  
+  .housebuttons {
+    transition: 0;    
+    opacity:0;
+    position: relative;
+    animation-name: dataAnim;  
+    animation-duration:1.5s;
+    animation-delay:3s;
+    animation-fill-mode: forwards; 
+  }
+  
+
+  .forms{
+    transition: 0;    
+    opacity:0;
+    position: relative;
+    animation-name: dataAnim;  
+    animation-duration:1.5s;
+    animation-delay:1s;
+    animation-fill-mode: forwards; 
+  }
+  
+
+  
+  

@@ -112,10 +112,9 @@ export default class Edit extends Component {
         if(this.state.Location !== null){
 
             return (<div>
-                <br/>
-                <br/>
-
                 <main className="mt-3 forms">
+                <br/>
+                <br/>
                     <h1 className="text-center">Update House</h1>
                     <hr className="bg-secondary half-width" />
                     <form className="mx-auto half-width" onSubmit={this.handleSubmit}>

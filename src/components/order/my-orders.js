@@ -45,6 +45,8 @@ export default class MyOrders extends Component {
             return (
 
                 <main className="mt-3 mb-5">
+                        <br />
+                        <br />
 
                 <div className="jumbotron detailsDataFromLeft">
                     <h1 className="text-center">My Orders</h1>
@@ -75,6 +77,8 @@ export default class MyOrders extends Component {
         return (
 
             <main className="mt-3 mb-5">
+                        <br />
+                        <br />
 
                 <div className="jumbotron detailsDataFromLeft">
                     <h1 className="text-center">My Orders</h1>

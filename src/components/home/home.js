@@ -17,14 +17,14 @@ export default class Home extends Component {
             .then(houses => {
 
                 let counter = 1;
-                
+
                 houses.forEach(houses => {
                     houses.key = counter.toString();
                     counter++;
                 });
 
                 this.setState({
-                    houses : houses.reverse()
+                    houses: houses.reverse()
                 });
 
             })
@@ -43,6 +43,7 @@ export default class Home extends Component {
 
                 <main className="mt-3 mb-5">
                     <br />
+                    <br />
                     <div className="jumbotron title">
 
                         <div className="crd-body container-fluid text-center">
@@ -57,7 +58,7 @@ export default class Home extends Component {
                     <br />
 
                     <div className="jumbotron container-fluid product-holder">
-                    
+
                         <div className="row d-flex justify-content-around mt-3">
 
                             {this.state.houses.map(h => {
@@ -81,20 +82,19 @@ export default class Home extends Component {
                                         <img className="animated bounce infinite imgAnimate" src={h.Image.toString()} alt="No House Img" />
                                         <br />
                                         <hr className="hr-1 bg-white houseLine" />
-                                        <p className="text-white text-center houseData">
+                                        <p className="text-center houseData">
                                             {h.Description.toString().slice(0, Math.min(h.Description.toString().length, 25)) + " . . ."}
                                         </p>
                                         <hr className="hr-1 bg-white houseLine" />
-                                        <h6 className="text-center text-white mb-3 houseData">${h.Price}</h6>
-                                        <h6 className="text-center text-white mb-3 houseData">{h.Size + " Meters"}</h6>
+                                        <h6 className="text-center mb-3 houseData">${h.Price}</h6>
+                                        <hr className="hr-1 bg-white houseLine" />
+                                        <h6 className="text-center mb-3 houseData">{h.Size + " Meters"}</h6>
                                     </div>
                                 </a>
                             })}
 
                         </div>
-
                     </div>
-
                 </main>
             )
         }
@@ -103,7 +103,7 @@ export default class Home extends Component {
             <div>
                 <br />
                 <br />
-                <div className="card text-white mb-6 bg-dark title" >
+                <div className="card text-white mb-6 bg-dark title unauthorizedCard" >
                     <div className="card-header">Introduction</div>
                     <div className="card-body">
                         <h2 className="card-title">Welcome to my Universal House Shop Website</h2>
@@ -115,7 +115,7 @@ export default class Home extends Component {
                     <br />
                     <h3 className="text-white">[ This is a portfolio website for training purposes only. ]</h3>
                     <br />
-                    <p className="text-white">[ To log in as admin use  username:Admin and password:Admin!  ]</p>
+                    <p className="text-white">[ To log in as admin use  username:<strong>Admin</strong> and password:<strong>Admin</strong> ]</p>
                     <br />
                     <hr className="bg-white" />
                     <br />

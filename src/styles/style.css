@@ -86,13 +86,12 @@ a {
 
 .TableOrderId {
     color: black;
-
+    padding: 1rem 1rem;
 }
 
 .TableOrderId:hover {
     background-color: darkcyan;
     position: relative;
-    padding: 10px 0px;
     border-radius: 25px;
 }
 
@@ -104,5 +103,16 @@ a {
     background-color: lightcoral;    
 }
 
+nav {
+    background-color: black;
+    z-index: 1;
+    
+    position: fixed !important;
+    padding: 0rem 1rem !important;
+    top:0;
+}
 
-
+.headerDiv {
+    margin-bottom: 80px;
+    width:100%;
+}

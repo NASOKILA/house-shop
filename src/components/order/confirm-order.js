@@ -38,6 +38,7 @@ export default class ConfirmOrder extends Component {
                 <div>
                     <main className="mt-3 mb-5">
                         <br />
+                        <br />
 
                         <div className="jumbotron detailsDataFromLeft">
                             <h1>Confirm Order Page</h1>

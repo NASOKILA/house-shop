@@ -45,14 +45,14 @@ export default class OrderCompleted extends Component {
                                     && o.Customer === localStorage.getItem("username"))) {
                                     console.log("order exists")
                                     orderExists = true;
-                                    
+
 
 
                                     let order = orders.filter(o => o.Product.Location === house.Location
                                         && o.Product.Description === house.Description
                                         && o.Product.Image === house.Image
                                         && o.Customer === localStorage.getItem("username"))[0];
-                                    
+
                                     //get order
                                     this.setState({
                                         message: "Congratulations Order Created Successfully !",
@@ -92,13 +92,17 @@ export default class OrderCompleted extends Component {
         if (this.state.error) {
             return (
 
-                <div className="jumbotron title">
-                    <div className="container-fluid text-center">
-                        <h1>{this.state.message}</h1>
-                        <br />
-                        <h3>You cannot buy it !</h3>
-                        <div className="product-action-holder mt-4 d-flex justify-content-around">
-                            <a className="btn btn btn-info housebuttons" href={"/house-shop"}>Back to home</a>
+                <div className="container-fluid text-center">
+                    <br />
+                    <br />
+                    <div className="jumbotron title">
+                        <div className="container-fluid text-center">
+                            <h1>{this.state.message}</h1>
+                            <br />
+                            <h3>You cannot buy it !</h3>
+                            <div className="product-action-holder mt-4 d-flex justify-content-around">
+                                <a className="btn btn btn-info housebuttons" href={"/house-shop"}>Back to home</a>
+                            </div>
                         </div>
                     </div>
                 </div>

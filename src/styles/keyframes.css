@@ -1,0 +1,49 @@
+
+  @keyframes dataAnim {
+  
+    0% {
+        
+    }
+  
+    100% {  
+      opacity:1;
+    }
+  }
+
+
+  @keyframes title {
+  
+    0% {
+        
+    }
+  
+    100% {  
+        right:0;
+    }
+  }
+
+  
+  @keyframes details {
+  
+    0% {
+        
+    }
+  
+    100% {  
+        left:0;
+    }
+  }
+  
+
+  @keyframes imgAnim {
+  
+    0% {
+        
+    }
+  
+    100% {  
+      border-radius: 50%;
+  
+    }
+  }
+  

@@ -36,8 +36,8 @@ export default class Details extends Component {
                 return (
                     <div>
 
-                        <br /><br />
                         <main className="mt-3 mb-5">
+                        <br /><br />
 
                             <div className="jumbotron detailsData">
 
@@ -46,7 +46,7 @@ export default class Details extends Component {
 
                                 <br />
                                 <br />
-
+                                
                                 <h1 className="text-center houseData">{this.state.house.Location}</h1>
                                 <br />
 
@@ -60,6 +60,7 @@ export default class Details extends Component {
                                 <img className="image-details houseData" src={this.state.house.Image} alt="No House Img" />
                                 <br />
                                 <br />
+                                <br />
                                 <h3 className="text-center">Description</h3>
                                 <div className="product-description-holder">
                                     <p className="text-center mt-4 houseData">
@@ -68,7 +69,10 @@ export default class Details extends Component {
                                 </div>
                             </div>
 
-                            <div className="jumbotron detailsActions">
+                            
+                        {localStorage.getItem("admin") === 'false'
+                            ? "" 
+                            :<div className="jumbotron detailsActions">
                                 <h3 className="text-center">Actions</h3>
                                 <hr className="hr-2 bg-dark" />
                                 <div className="product-action-holder mt-4 d-flex justify-content-around">
@@ -82,7 +86,7 @@ export default class Details extends Component {
                                         ? <a className="btn btn-lg btn-danger housebuttons" href={"/house-shop/house/delete/" + this.state.house._id}>Delete</a>
                                         : ""}
                                 </div>
-                            </div>
+                            </div>}
                         </main>
                         <br />
                         <br />
@@ -93,8 +97,8 @@ export default class Details extends Component {
 
             return (
                 <div>
-                    <br />
                     <main className="mt-3 mb-5">
+                        <br />
                         <br />
                         <div className="jumbotron detailsData">
 
@@ -104,20 +108,26 @@ export default class Details extends Component {
                             <br />
                             <br />
 
-                            <h1 className="text-center houseData">{this.state.house.Location}</h1>
+                            <h3 className="text-center">Location</h3>
+                            <p className="text-center houseData">{this.state.house.Location}</p>
                             <br />
 
-                            <h3 className="text-center houseData"> {this.state.house.Price} $</h3>
+                            <h3 className="text-center">Price</h3>
+                            <p className="text-center houseData"> {this.state.house.Price} $</p>
                             <br />
 
-                            <h3 className="text-center houseData"> {this.state.house.Size} Square Meters</h3>
+                            <h3 className="text-center">Size</h3>
+                            <p className="text-center houseData"> {this.state.house.Size} Square Meters</p>
+                            <br />
 
+                            <h3 className="text-center">Status</h3>
+                            <p className="text-center houseData">{this.state.house.Sold === 'true' ? 'Sold' : 'Avaliable'}</p>
                             <br />
-                            <h1 className="text-center houseData">{this.state.house.Sold === 'true' ? 'Sold' : 'Avaliable'}</h1>
-                            <br />
+
+                            <h3 className="text-center">Image</h3>
                             <img className="image-details houseData" src={this.state.house.Image} alt="No House Img" />
                             <br />
-                            <br />
+
                             <h3 className="text-center">Description</h3>
                             <div className="product-description-holder">
                                 <p className="text-center mt-4 houseData">
@@ -125,8 +135,6 @@ export default class Details extends Component {
                                 </p>
                             </div>
                         </div>
-
-
 
 
                         <div className="jumbotron detailsActions">

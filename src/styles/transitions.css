@@ -1,0 +1,16 @@
+ 
+  .content {
+    transition-property: all; 
+    color : black !important;
+    border-radius: 10% !important;
+    font-size: 15px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    transition-duration: 0.5s; /*Now for the background it will be 1s, for border-radius 3s and for transform 5s*/
+    transition-delay: 0.5s; /*it will wait 1 seconds before it begins*/
+    transition-timing-function: linear; 
+}
+
+.content:hover {
+  background: burlywood;
+  font-size: 15px;
+}
