@@ -31,7 +31,18 @@ export default class Login extends Component {
         ev.preventDefault();
 
 
-
+        if(this.state.username === null || this.state.username.trim() === ""){
+            this.setState({
+                message : "Username must not be null or empty!"
+            })
+        }
+        else if(this.state.password === null || this.state.password.trim() === "")
+        {
+            this.setState({
+                message: "Password must not be null or empty!"
+            })
+        }
+        else {
 
         requester.post('user', 'login', 'basic', this.state)
             .then(res => {
@@ -64,8 +75,9 @@ export default class Login extends Component {
                 });
 
             });
+        
+        }
     }
-
 
 
     render() {
@@ -82,31 +94,30 @@ export default class Login extends Component {
 
                 <main className="mt-3 forms">
                     <h1 className="text-center">Login</h1>
-                    <hr className="bg-secondary half-width" />
+                    <hr className="bg-secondary half-width"/>
                     <form className="mx-auto half-width" onSubmit={this.handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="username">Username</label>
+                            <label htmlFor="username"><i className="fa fa-user"></i> Username <span className="red-star">*</span></label>
                             <input type="text" onChange={this.handleChange} className="form-control" id="username" placeholder="Username..." name="username" />
                         </div>
                         <br />
                         <div className="form-group">
-                            <label htmlFor="password">Password</label>
+                            <label htmlFor="password"><i className="fa fa-key"></i> Password <span className="red-star">*</span></label>
                             <input type="password" onChange={this.handleChange} className="form-control" id="password" placeholder="Password..." name="password" />
                         </div>
                         <br/>
                         <hr className="bg-secondary half-width" />
                         <div className="button-holder d-flex justify-content-center">
-                            <input type="submit" className="btn btn-success" value="Login" />
+                            <button type="submit" className="btn btn-success"><span className="buttons-text text-capitalize"><i className="fa fa-sign-in-alt"></i> Login</span></button>
                         </div>
                     </form>
                 </main>
                 <br />
-                <h1 className="text-center danger">{this.state.message}</h1>
+                <p className="text-center danger">{this.state.message}</p>
                 <br />
                 <br />
 
             </div>
-
         )
     }
 }

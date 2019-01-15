@@ -11,7 +11,6 @@ export default class OrderDetails extends Component {
         }
     }
 
-
     deleteOrder = () => {
         let id = this.props.match.params.id;
 
@@ -25,7 +24,6 @@ export default class OrderDetails extends Component {
             .catch(err => console.log(err));
     }
 
-
     componentDidMount = () => this.sethouseState();
 
     sethouseState = () => {
@@ -33,6 +31,7 @@ export default class OrderDetails extends Component {
 
         requester.get('appdata', 'Orders/' + id, 'kinvey')
             .then(order => {
+                console.log(order)
                 this.setState({
                     order
                 });
@@ -49,50 +48,57 @@ export default class OrderDetails extends Component {
                     <br />
                     <br />
                     <main className="mt-3 mb-5">
+
                         <div className="jumbotron detailsData">
-                            <h1>Order Details Page</h1>
+                            <h1 className="text-uppercase">Order Details Page</h1>
                             <hr className="hr-2 bg-dark" />
                             <br />
 
-                            <h3 className="text-center">Customer: </h3>
-                            <span className="names houseData">{this.state.order.Customer}</span>
+                            <h1 className="text-center">Customer: </h1>
+                            <span className="names details-labels">{this.state.order.Customer}</span>
                             <br />
                             <br />
 
-                            <h3 className="text-center">Ordered On: </h3>
-                            <span className="names houseData">{this.state.order.OrderedOn}</span>
+                            <h1 className="text-center">Ordered On: </h1>
+                            <span className="names details-labels">{this.state.order.OrderedOn}</span>
                             <br />
                             <br />
 
-                            <h3 className="text-center">House Location: </h3>
-                            <span className="names houseData">{this.state.order.Product.Location}</span>
+                            <h1 className="text-center">House Location: </h1>
+                            <span className="names details-labels">{this.state.order.Product.Location}</span>
                             <br />
                             <br />
 
-                            <h3 className="text-center">Price:</h3>
-                            <span className="names houseData">{this.state.order.Product.Price} $</span>
+                            <h1 className="text-center">Price:</h1>
+                            <span className="names details-labels">{this.state.order.Product.Price} $</span>
                             <br />
                             <br />
 
-                            <h3 className="text-center">Size: </h3>
-                            <span className="names houseData">{this.state.order.Product.Size} s.m.</span>
+                            <h1 className="text-center">Size: </h1>
+                            <span className="names details-labels">{this.state.order.Product.Size} s.m.</span>
                             <br />
                             <br />
 
-                            <h3 className="text-center">Description:</h3>
-                            <span className="names houseData">{this.state.order.Product.Description}</span>
+                            <h1 className="text-center">House:</h1>
+                            <img className="house-image details-labels" src={this.state.order.Product.Image} alt="No house img avaliable."/>
+                            <br />
+                            <br />
+
+                            <h1 className="text-center">Description:</h1>
+                            <span className="names details-labels">{this.state.order.Product.Description}</span>
                             <br />
                             <br />
                         </div>
 
                         <div className="jumbotron detailsActions">
-                            <h3 className="text-center">Actions</h3>
+                            <h1 className="text-center">Actions</h1>
                             <hr className="hr-2 bg-dark" />
                             <div className="product-action-holder mt-4 d-flex justify-content-around">
-                                <a className="btn btn-lg btn-info housebuttons" href="/house-shop">Back to home</a>
-                                <button className="btn btn-lg btn-danger housebuttons" onClick={this.deleteOrder}>Delete</button>
+                                <a className="btn btn-lg btn-info housebuttons" href="/house-shop"><span className="buttons-text text-capitalize"><i className="fa fa-home"></i> Home</span></a>
+                                <button className="btn btn-lg btn-danger housebuttons" onClick={this.deleteOrder}><span className="buttons-text text-capitalize"><i className="fa fa-trash-alt"></i> Delete</span></button>
                             </div>
                         </div>
+
                     </main> 
                 </div>
             )
@@ -102,4 +108,3 @@ export default class OrderDetails extends Component {
         }
     }
 }
-

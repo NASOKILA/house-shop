@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import requester from '../../Infrastructure/remote';
+import $ from 'jquery';
 
 export default class All extends Component {
     constructor(props) {
@@ -31,6 +32,41 @@ export default class All extends Component {
             .catch(err => console.log(err));
     }
 
+
+
+    deleteOrder = (id, counter) => {
+
+        let rows = $("tbody > tr");
+        
+        let rowClicked = '';
+        rows.each((i,row) => {
+
+            if(row.children[0].innerHTML === counter.toString())
+            {
+                rowClicked = row;
+                console.log("ROW FOUND");
+                return false;
+            }
+        });
+
+        if(counter === 1){
+            $(rowClicked).replaceWith("<tr><th><h3 className='text-center'>No orders in DB.</h3></th></tr>").fadeIn();
+        }
+        else{
+            $(rowClicked).fadeOut();
+        }
+
+        
+        requester.remove('appdata', 'Orders/' + id, 'kinvey')
+            .then(() => {
+                console.log("Order deleted !");
+
+            })
+            .catch(err => console.log(err));
+        
+    }
+
+
     render() {
 
         let counter = 0;
@@ -55,14 +91,18 @@ export default class All extends Component {
                             <tr className="table-dark">
                                 <th scope="col">#</th>
                                 <th scope="col">Order Id</th>
-                                <th scope="col">House Id</th>
                                 <th scope="col">Customer</th>
                                 <th scope="col">House Location</th>
                                 <th scope="col">Ordered On</th>
+                                <th scope="col">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <h3 className="text-center">No orders in DB.</h3>
+                            <tr>
+                                <th>
+                                    <h3 className="text-center">No orders in DB.</h3>
+                                </th>    
+                            </tr>
                         </tbody>
                     </table>
                     </div>
@@ -75,7 +115,7 @@ export default class All extends Component {
                 <br/>
                 <br/>
                 <div className="jumbotron detailsDataFromLeft">
-                    <h1 className="text-center">All Orders</h1>
+                    <h1 className="text-center text-uppercase">All Orders</h1>
                     <hr className="hr-2 bg-dark" />
                 </div>
                 <div className="jumbotron detailsData">
@@ -84,10 +124,10 @@ export default class All extends Component {
                         <tr className="table-dark">
                             <th scope="col">#</th>
                             <th scope="col">Order Id</th>
-                            <th scope="col">House Id</th>
                             <th scope="col">Customer</th>
                             <th scope="col">House Location</th>
                             <th scope="col">Ordered On</th>
+                            <th scope="col">Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -97,11 +137,12 @@ export default class All extends Component {
                             return <tr className="table-success housebuttons" key={counter}>
                                 <th scope="row">{++counter}</th>
                                 <td><a className="TableOrderId" href={'/house-shop/order/details/' + o._id}>{o._id}</a></td>
-                                <td><a className="TableOrderId" href={'/house-shop/house/details/' + o.Product._id}>{o.Product._id}</a></td>
                                 <td><a className="TableOrderId" href={'/house-shop/user/profile/' + this.state.users.filter(u => u.username === o.Customer)[0]._id}>{o.Customer}</a></td>
                                 <td>{o.Product.Location}</td>
                                 <td>{o.OrderedOn}</td>
+                                <td><a onClick={this.deleteOrder.bind(this, o._id, counter)} className="btn btn-danger">Delete</a> | <a href={'/house-shop/order/details/' + o._id} className="btn btn-info order-details-btn">Details</a></td>                            
                             </tr>
+                            
                         })}
 
                     </tbody>

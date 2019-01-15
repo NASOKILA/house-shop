@@ -18,6 +18,7 @@ export default class Register extends Component {
             email: null,
             password: null,
             repeatPassword: null,
+            avatar : null,
             message:''
         }
     }
@@ -62,6 +63,11 @@ export default class Register extends Component {
                 message : "Passwords must match!"
             })
         }
+        else if(this.state.password === this.state.email){
+            this.setState({
+                message : "Password must not be equal to your email!"
+            })
+        }
         else if(this.state.password === null || this.state.password.trim() === ""){
             this.setState({
                 message : "Password must not be null or empty!"
@@ -84,12 +90,12 @@ export default class Register extends Component {
         }
         else {
 
-            requester.post('user', '', 'basic', {'username' : this.state.username, 'password' : this.state.password, 'email': this.state.email})
+            requester.post('user', '', 'basic', {'username' : this.state.username, 'password' : this.state.password, 'email': this.state.email, 'Avatar' : this.state.avatar })
             .then(res => {
                 observer.trigger(observer.events.notification, {success: true, message: "Register Successfully Please Login!", type: 'success'})    
             
                 this.setState({
-                    message: "Registration Successfully!"
+                    message: ""
                 })
 
                 requester.post('user', 'login', 'basic', this.state)
@@ -140,41 +146,42 @@ export default class Register extends Component {
 
             <form className="mx-auto half-width" onSubmit={this.handleSubmit}>
                 <div className="form-group">
-                    <label htmlFor="username">Username</label>
+                    <label htmlFor="username"><i className="fa fa-user"></i> Username <span className="red-star">*</span></label>
                     <input type="text" onChange={this.handleChange} className="form-control" id="username" placeholder="Username..." name="username"/>
                 </div>
                 <br/>
                 <div className="form-group">
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="email"><i className="fa fa-envelope"></i> Email <span className="red-star">*</span></label>
                     <input type="email" onChange={this.handleChange} className="form-control" id="email" placeholder="Email..." name="email"/>
                 </div>
                 <br/>
                 <div className="form-group">
-                    <label htmlFor="password">Password</label>
+                    <label htmlFor="password"><i className="fa fa-key"></i> Password <span className="red-star">*</span></label>
                     <input type="password" onChange={this.handleChange} className="form-control" id="password" placeholder="Password..." name="password"/>
                 </div>
                 <br/>
                 <div className="form-group">
-                    <label htmlFor="confirmPassword">Confirm Password</label>
+                    <label htmlFor="confirmPassword"><i className="fa fa-check"></i> Confirm Password <span className="red-star">*</span></label>
                     <input type="password" onChange={this.handleChange} className="form-control" id="confirmPassword" placeholder="Confirm Password..." name="repeatPassword"/>
+                </div>
+                <br/>
+                <div className="form-group">
+                    <label htmlFor="avatar"><i className="fa fa-image"></i> Avatar (optional)</label>
+                    <input type="url" onChange={this.handleChange} className="form-control" id="avatar" placeholder="Avatar..." name="avatar"/>
                 </div>
                 <br/>
                 <hr className="bg-secondary half-width" />
                 <div className="button-holder d-flex justify-content-center">
-                    <input type="submit" className="btn btn-success" value="Register"/>
+                    <button type="submit" className="btn btn-success"><span className="buttons-text text-capitalize"><i className="fa fa-registered"></i> Register</span></button>
                 </div>
             </form>
             <br/>
-            <h1 className="text-center danger">{this.state.message}</h1>
+            <p className="text-center danger">{this.state.message}</p>
             <br/>
             <br/>
         
         </main>
     
-            
-
-
-
-            )
+        )
     }
 }

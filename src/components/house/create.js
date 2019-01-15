@@ -91,39 +91,39 @@ export default class Create extends Component {
                 <br/>
                 <br/>
                 <main className="mt-3 forms">
-                    <h1 className="text-center">Create House</h1>
+                    <h1 className="text-center text-uppercase">Create House</h1>
                     <hr className="bg-secondary half-width" />
 
                     <form className="mx-auto half-width" onSubmit={this.handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="name">Location</label>
+                            <label htmlFor="name">Location <span className="red-star">*</span></label>
                             <input type="text" onChange={this.handleChange} className="form-control" id="name" placeholder="Location..." name="Location" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="price">Price</label>
+                            <label htmlFor="price">Price <span className="red-star">*</span></label>
                             <input type="number" onChange={this.handleChange} className="form-control" id="price" placeholder="Price..." name="Price" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="description">Size</label>
+                            <label htmlFor="description">Size <span className="red-star">*</span></label>
                             <input type="text" onChange={this.handleChange} className="form-control" id="size" placeholder="Size meters..." name="Size" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="description">Image</label>
+                            <label htmlFor="description">Image (optional)</label>
                             <input type="text" onChange={this.handleChange} className="form-control" id="image" placeholder="Image..." name="Image" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="description">Description</label>
+                            <label htmlFor="description">Description <span className="red-star">*</span></label>
                             <textarea rows="4" cols="50" type="text" onChange={this.handleChange} className="form-control" id="description" placeholder="Description..." name="Description"></textarea>
                         </div>
                         <br/>
                         <hr className="bg-secondary half-width" />
 
                         <div className="button-holder d-flex justify-content-center">
-                            <input type="submit" value="Create" className="btn btn-success" />
+                            <button type="submit" className="btn btn-success">Create <i className="fa fa-plus"></i></button>
                         </div>
                     </form>
                 </main>

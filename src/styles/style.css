@@ -24,6 +24,7 @@ textarea {
     color: #C0C0C0
 }
 
+
 .hr-2 {
     height: 2px;
 }
@@ -54,10 +55,6 @@ img {
     width:100%;
     padding:5px;
     height: 220px;
-}
-
-a {
-    margin: 15px 0px;    
 }
 
 .homeLink {
@@ -106,13 +103,142 @@ a {
 nav {
     background-color: black;
     z-index: 1;
-    
     position: fixed !important;
     padding: 0rem 1rem !important;
+    width:100%;
     top:0;
+    height: 75px;
 }
 
 .headerDiv {
     margin-bottom: 80px;
     width:100%;
 }
+
+
+.dropbtn { background-color: #343A3F; color: #d3d3d3; padding: 16px; font-size: 16px; border: none; cursor: pointer; } 
+
+.dropbtn:hover, .dropbtn:focus { border-radius: 25px; background-color: #d3d3d3; color: #31373c; } 
+
+.dropdown { position: relative; display: inline-block; } 
+
+.dropdown-content { display: none; position: absolute; background-color: #31373c; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; } 
+
+.dropdown-content a { color: #d3d3d3; padding: 12px 16px; text-decoration: none; display: block; } 
+
+.dropdown-content a:hover {background-color: #d3d3d3} 
+
+.show {display:block;}
+
+.red-star {
+    color:red;
+}
+
+label {
+    font-size: 25px;
+    float: left;
+}
+
+.danger {
+    color :red;
+    font-size: 35px;
+}
+
+.dropdown-content a {
+    padding: 16px;
+}
+
+.details-labels {
+    font-size: 25px;
+}
+
+.buttons-text {
+    font-size: 20px;
+}
+
+.p-tag {
+    font-size: 25px;    
+}
+
+.admin-nav-link {
+    font-size: 15px;
+}
+
+.user-image {
+    width: 30%;
+}
+
+.house-image {
+    width: 30%;
+}
+
+table {
+    color:black;
+}
+
+.table-success:hover, tbody:hover, table:hover {
+    color:black !important;
+}
+
+.order-details-btn {
+    color:black !important;
+}
+
+.pagination {
+
+    margin-top:40px;
+    padding: 10px;
+    font-size: 25px;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination > li {
+    border: 1px solid gray;
+    padding: 15px 0px;    
+}
+
+
+.pagination > li > a {
+    padding: 15px;
+}
+
+.pagination > li > a:hover {
+    color:white;
+    background-color:gray;
+}
+
+.pagination > li:hover {
+    cursor: pointer;
+    background-color:gray;
+    color:white;
+}
+
+.pagination > .active {
+    background-color: lightskyblue;
+}
+
+.home-page-house-buttons{
+    padding:20px;
+}
+
+.home-page-house-image {
+    height: 300px;   
+}
+
+.button-holding-houses {
+    width: 30%;
+    padding:0px !important;
+    background-color: #f7f7f9;
+    border:none;
+}
+
+.button-holding-houses:hover {
+    cursor: pointer;
+}
+
+.content {
+    width:100%;
+}
+

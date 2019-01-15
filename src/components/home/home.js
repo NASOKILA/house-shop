@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import requester from '../../Infrastructure/remote';
+import Pagination from "react-js-pagination";
 
 export default class Home extends Component {
 
@@ -7,9 +8,24 @@ export default class Home extends Component {
         super(props);
 
         this.state = {
-            houses: []
+            houses: [],
+            activePage : 1           
         }
     }
+
+
+    componentDidMount()
+    {
+        this.setHouses();
+    }
+
+    handlePageChange(pageNumber) {
+
+        this.setState({
+            activePage: pageNumber
+        });
+    }
+
 
     setHouses = () => {
 
@@ -24,17 +40,35 @@ export default class Home extends Component {
                 });
 
                 this.setState({
-                    houses: houses.reverse()
+                    houses: houses
+                    
                 });
 
             })
             .catch(err => console.log(err));
     }
 
+    sortHouses = (a, b) => {
+        if(a.Sold === "true"){
+            return 1;
+        }
+
+        if(b.Sold === "false"){
+            return -1;
+        }
+
+        return 0;
+    }
+
+    redirectToDetails = (id) => {
+        return window.location='/house-shop/house/details/' + id;
+    }
+
     render() {
 
-        if (localStorage.getItem('username')) {
-            this.setHouses();
+        if (localStorage.getItem('username') ) {
+
+
             let role = localStorage.getItem('admin') === 'true'
                 ? "Admin"
                 : "User";
@@ -61,7 +95,7 @@ export default class Home extends Component {
 
                         <div className="row d-flex justify-content-around mt-3">
 
-                            {this.state.houses.map(h => {
+                            {this.state.houses.sort(this.sortHouses).slice((this.state.activePage - 1) * 3).map(h => {
 
                                 let classSold = "";
                                 let avaliable = "Avaliable";
@@ -71,30 +105,62 @@ export default class Home extends Component {
                                     avaliable = "Sold";
                                 }
 
-                                return <a key={h.key} href={"/house-shop/house/details/" + h._id} className="col-md-3">
+                                return <button onClick={this.redirectToDetails.bind(this, h._id)} key={h.key} className="col-md-3 button-holding-houses">
                                     <div className={classSold + " product p-1 chushka-bg-color rounded-top rounded-bottom content"}>
 
-                                        <h5 className="text-center mt-3 houseData">{h.key}</h5>
-                                        <h5 className="text-center mt-3 houseData">{avaliable}</h5>
+                                        <h4 className="text-center mt-3 houseData">{h.key}</h4>
+                                        <h4 className="text-center mt-3 houseData">{avaliable}</h4>
                                         <hr className="hr-1 bg-white houseLine" />
-                                        <h5 className="text-center mt-3 houseData">{h.Location}</h5>
+                                        <h4 className="text-center mt-3 houseData">{h.Location}</h4>
                                         <hr className="hr-1 bg-white houseLine" />
-                                        <img className="animated bounce infinite imgAnimate" src={h.Image.toString()} alt="No House Img" />
+                                        <img className="imgAnimate home-page-house-image" src={h.Image.toString()} alt="No House Img" />
                                         <br />
                                         <hr className="hr-1 bg-white houseLine" />
                                         <p className="text-center houseData">
                                             {h.Description.toString().slice(0, Math.min(h.Description.toString().length, 25)) + " . . ."}
                                         </p>
                                         <hr className="hr-1 bg-white houseLine" />
-                                        <h6 className="text-center mb-3 houseData">${h.Price}</h6>
+                                        <h4 className="text-center mb-3 houseData">${h.Price}</h4>
                                         <hr className="hr-1 bg-white houseLine" />
-                                        <h6 className="text-center mb-3 houseData">{h.Size + " Meters"}</h6>
-                                    </div>
-                                </a>
-                            })}
+                                        <h4 className="text-center mb-3 houseData">{h.Size + " Meters"}</h4>
+                                        <hr className="hr-1 bg-white houseLine" />
+                                        <div className="home-page-house-buttons">
+                                            
+                                            <a className="btn btn-sm btn-info housebuttons" href={"/house-shop/house/details/" + h._id}>
+                                                <span className="buttons-text text-capitalize">
+                                                    <i className="fa fa-info"></i> Info
+                                                </span>
+                                            </a>
+                                            
+                                            {h.Sold === "false" && localStorage.getItem("admin") === "false"
+                                            ? <a className="btn btn-sm btn-success housebuttons" href={"/house-shop/house/confirm-order/" + h._id}><span className="buttons-text text-capitalize"><i className="fa fa-shopping-cart"></i> Buy</span></a>
+                                            : ""}
 
-                        </div>
+                                            {h.Sold === "false" && (localStorage.getItem("admin") === "true")
+                                            ? <a className="btn btn-sm btn-warning housebuttons" href={"/house-shop/house/edit/" + h._id}><span className="buttons-text text-capitalize"><i className="fa fa-edit"></i> Edit</span></a>
+                                            : ""}
+
+                                            {localStorage.getItem("admin") === "true"
+                                            ? <a className="btn btn-sm btn-danger housebuttons" href={"/house-shop/house/delete/" + h._id}><span className="buttons-text text-capitalize"><i className="fa fa-trash-alt"></i> Trash</span></a>
+                                            : ""}
+                                        </div>
+                                    </div>
+                                </button>
+                            }).slice(0,3)}
+                      </div>
+
+                    
+                    
+                    <div className="forms">
+                    <Pagination 
+                      activePage={this.state.activePage}
+                      itemsCountPerPage={3}
+                      totalItemsCount={this.state.houses.length}
+                      pageRangeDisplayed={3}
+                      onChange={this.handlePageChange.bind(this)}/>
                     </div>
+                      </div>
+                    
                 </main>
             )
         }
@@ -113,15 +179,18 @@ export default class Home extends Component {
 
                 <div className="jumbotron text-white mt-3 bg-dark detailsActions">
                     <br />
-                    <h3 className="text-white">[ This is a portfolio website for training purposes only. ]</h3>
+                    <h3 className="text-white text-capitalize">This is a portfolio website for training purposes only.</h3>
                     <br />
-                    <p className="text-white">[ To log in as admin use  username:<strong>Admin</strong> and password:<strong>Admin</strong> ]</p>
+                    <h3 className="text-red danger text-capitalize">To log in as an administrator use the following credentials:</h3>
+                    <br />
+                    <h3 className="text-red danger text-capitalize">Username : "Admin"</h3>
+                    <h3 className="text-red danger text-capitalize">Password : "Admin"</h3>
                     <br />
                     <hr className="bg-white" />
                     <br />
-                    <h3 className="text-white"><a className="nav-link-dark homeLink" href="/house-shop/user/register">Register</a> if you don't have an account.</h3>
+                    <h3 className="text-white text-capitalize"><a className="nav-link-dark homeLink" href="/house-shop/user/register"><i className="fa fa-registered"></i> Register</a> if you don't have an account.</h3>
                     <br />
-                    <h3 className="text-white"><a className="nav-link-dark homeLink" href="/house-shop/user/login">Login</a> if you have an account.</h3>
+                    <h3 className="text-white text-capitalize"><a className="nav-link-dark homeLink" href="/house-shop/user/login"><i className="fa fa-sign-in-alt"></i> Login</a> if you have an account.</h3>
                 </div>
                 <br />
             </div>

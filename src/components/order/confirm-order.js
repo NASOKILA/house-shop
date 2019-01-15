@@ -41,33 +41,36 @@ export default class ConfirmOrder extends Component {
                         <br />
 
                         <div className="jumbotron detailsDataFromLeft">
-                            <h1>Confirm Order Page</h1>
+                            <h1 className="text-center text-uppercase">Confirm Order Page</h1>
                             <hr className="hr-2 bg-dark" />
                         </div>
 
                         <div className="jumbotron detailsData">
-                            <h3 className="text-center">Customer: </h3>
-                            <span className="names">{localStorage.getItem("username")}</span>
-                            <br /><br />
-                            <h3 className="text-center">Location: </h3>
-                            <span className="names">{this.state.house.Location}</span>
+                            
+                            <h1 className="text-center">Customer</h1>
+                            <span className="details-labels">{localStorage.getItem("username")}</span>
                             <br /><br />
 
-                            <h3 className="text-center">Price:</h3>
-                            <span className="names">{this.state.house.Price} $</span>
+                            <h1 className="text-center">Location</h1>
+                            <span className="details-labels">{this.state.house.Location}</span>
                             <br /><br />
 
-                            <h3 className="text-center">Size in square meters: </h3>
-                            <span className="names">{this.state.house.Size} s.m.</span>
+                            <h1 className="text-center">Price</h1>
+                            <span className="details-labels">{this.state.house.Price} $</span>
                             <br /><br />
 
-                            <h3 className="text-center">Image: </h3>
+                            <h1 className="text-center">Size in square meters</h1>
+                            <span className="details-labels">{this.state.house.Size} s.m.</span>
+                            <br /><br />
+
+                            <h1 className="text-center">Image</h1>
                             <img className="nameImage" src={this.state.house.Image} alt="No Img Avaliable" />
                             <br /><br />
 
-                            <h3 className="text-center">Description:</h3>
-                            <span className="names">{this.state.house.Description}</span>
+                            <h1 className="text-center">Description</h1>
+                            <span className="details-labels">{this.state.house.Description}</span>
                             <br /><br />
+
                         </div>
 
 
@@ -76,8 +79,8 @@ export default class ConfirmOrder extends Component {
                             <hr className="hr-2 bg-dark" />
                             <div className="product-action-holder mt-4 d-flex justify-content-around">
 
-                                <a className="btn btn-lg btn-success housebuttons" href={"/house-shop/order/completed/" + this.state.house._id}>Buy</a>
-                                <a className="btn btn-lg btn-info housebuttons" href={"/house-shop/house/details/" + this.state.house._id}>Back</a>
+                                <a className="btn btn-lg btn-info housebuttons" href={"/house-shop/house/details/" + this.state.house._id}><span className="buttons-text text-capitalize"><i className="fa fa-arrow-left"></i> Back</span></a>
+                                <a className="btn btn-lg btn-success housebuttons" href={"/house-shop/order/completed/" + this.state.house._id}><span className="buttons-text text-capitalize"><i className="fa fa-shopping-cart"></i> Buy</span></a>
                             </div>
                         </div>
                     </main>

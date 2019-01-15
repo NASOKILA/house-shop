@@ -115,38 +115,38 @@ export default class Edit extends Component {
                 <main className="mt-3 forms">
                 <br/>
                 <br/>
-                    <h1 className="text-center">Update House</h1>
+                    <h1 className="text-center text-uppercase">Update House</h1>
                     <hr className="bg-secondary half-width" />
                     <form className="mx-auto half-width" onSubmit={this.handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="name">Location</label>
+                            <label htmlFor="name">Location <span className="red-star">*</span></label>
                             <input type="text" onChange={this.handleChange} value={this.state.Location} className="form-control" id="name"  placeholder="Location..." name="Location" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="price">Price</label>
+                            <label htmlFor="price">Price <span className="red-star">*</span></label>
                             <input type="number" onChange={this.handleChange} value={this.state.Price} className="form-control" id="price" placeholder="Price..." name="Price" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="description">Size</label>
+                            <label htmlFor="description">Size <span className="red-star">*</span></label>
                             <input type="text" onChange={this.handleChange} value={this.state.Size} className="form-control" id="size" placeholder="Size meters..." name="Size" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="description">Image</label>
+                            <label htmlFor="description">Image (optional)</label>
                             <input type="text" onChange={this.handleChange} value={this.state.Image} className="form-control" id="image" placeholder="Image..." name="Image" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="description">Description</label>
+                            <label htmlFor="description">Description <span className="red-star">*</span></label>
                             <textarea  rows="4" cols="50" type="text"  value={this.state.Description} onChange={this.handleChange} className="form-control" id="description" placeholder="Description..." name="Description"></textarea>
                         </div>
                         <br/>
                         <hr className="bg-secondary half-width" />
 
                         <div className="button-holder d-flex justify-content-center">
-                            <input type="submit" value="Update" className="btn btn-warning"/>
+                            <button type="submit" className="btn btn-lg btn-warning"><span className="buttons-text"><i className="fa fa-sync-alt fa-spin"></i> Update</span></button>
                         </div>
 
                     </form>

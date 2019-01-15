@@ -13,10 +13,6 @@ function makeAuth(auth) {
     }
 }
 
-// request method (GET, POST, PUT, DELETE)
-// kinvey module (user/appdata)
-// url endpoint
-// auth              //Izpolzva makeAuth funkciqta za da si pravi autentikaciq
 function makeRequest(method, module, endpoint, auth) {
     
     return {

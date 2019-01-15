@@ -122,8 +122,8 @@ export default class OrderCompleted extends Component {
                         <br />
                         <h3 className="housebuttons">Enjoy your new house :)</h3>
                         <div className="product-action-holder mt-4 d-flex justify-content-around">
-                            <a className="btn btn btn-info housebuttons" href={"/house-shop"}>Back to home</a>
-                            <a className="btn btn btn-info housebuttons" href={"/house-shop/order/details/" + this.state.order._id}>Order Details</a>
+                            <a className="btn btn-lg btn-info housebuttons" href={"/house-shop"}><span className="buttons-text text-capitalize"><i className="fa fa-home"></i> Home</span></a>
+                            <a className="btn btn-lg btn-info housebuttons" href={"/house-shop/order/details/" + this.state.order._id}><span className="buttons-text text-capitalize"><i className="fa fa-info"></i> Details</span></a>
                         </div>
                     </div>
                 </div>

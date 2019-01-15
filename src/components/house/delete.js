@@ -17,7 +17,6 @@ export default class Delete extends Component {
         }
     }
 
-
     componentDidMount = () => this.sethouseState();
 
     sethouseState = () => {
@@ -79,38 +78,38 @@ export default class Delete extends Component {
                 <br/>
                 <br/>
 
-                    <h1 className="text-center">Delete House</h1>
+                    <h1 className="text-center text-uppercase">Delete House</h1>
                     <hr className="bg-secondary half-width" />
                     <form className="mx-auto half-width" onSubmit={this.handleSubmit}>
                         <div className="form-group">
-                            <label htmlFor="name">Location</label>
+                            <label htmlFor="name">Location <span className="red-star">*</span></label>
                             <input type="text" disabled onChange={this.handleChange} value={this.state.Location} className="form-control dangerInput" id="name"  placeholder="Location..." name="Location" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="price">Price</label>
+                            <label htmlFor="price">Price <span className="red-star">*</span></label>
                             <input type="number" disabled onChange={this.handleChange} value={this.state.Price} className="form-control dangerInput" id="price" placeholder="Price..." name="Price" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="description">Size</label>
+                            <label htmlFor="description">Size <span className="red-star">*</span></label>
                             <input type="text" disabled onChange={this.handleChange} value={this.state.Size} className="form-control dangerInput" id="size" placeholder="Size meters..." name="Size" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="description">Image</label>
+                            <label htmlFor="description">Image (optional)</label>
                             <input type="text" disabled onChange={this.handleChange} value={this.state.Image} className="form-control dangerInput" id="image" placeholder="Image..." name="Image" />
                         </div>
                         <br/>
                         <div className="form-group">
-                            <label htmlFor="description">Description</label>
+                            <label htmlFor="description">Description <span className="red-star">*</span></label>
                             <textarea rows="4" cols="50" type="text" disabled value={this.state.Description} onChange={this.handleChange} className="form-control dangerInput" id="description" placeholder="Description..." name="Description"></textarea>
                         </div>
                         <br/>
                         <hr className="bg-secondary half-width" />
 
                         <div className="button-holder d-flex justify-content-center">
-                            <input type="submit" value="Delete" className="btn btn-danger"/>
+                            <button type="submit" className="btn btn-lg btn-danger"><span className="buttons-text"><i className="fa fa-trash-alt"></i> Delete</span></button>
                         </div>
                     </form>
                 </main>
